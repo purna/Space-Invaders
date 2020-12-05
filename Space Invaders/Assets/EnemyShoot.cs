@@ -8,16 +8,21 @@ public class EnemyShoot : MonoBehaviour
     public float nextShot = -1;
     public GameObject bullet;
 
+    public float variation;
+
     // Start is called before the first frame update
     void Start()
     {
-        nextShot = Random.Range(1, 3f);
-        timeBetweenShots = Random.Range(3, 6.5f);
+        nextShot = Time.time + Random.Range(1, timeBetweenShots);
+        timeBetweenShots += Random.Range(-variation, variation);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.pause)
+            return;
+
         if(Time.time > nextShot)
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
