@@ -49,11 +49,12 @@ public class EnemyScript : MonoBehaviour
             if (present)
                 presentCountdown--;
         }
-    }
 
-    private void OnBecameVisible()
-    {
-        GetComponent<EnemyShoot>().enabled = true;
+        if(transform.position.y < 3.5f && GetComponent<EnemyShoot>().enabled == false)
+        {
+            GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<EnemyShoot>().enabled = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
