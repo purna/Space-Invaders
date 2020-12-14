@@ -5003,7 +5003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -86.3, y: -12.8}
+  m_AnchoredPosition: {x: -64, y: -15.845}
   m_SizeDelta: {x: 75, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &702652309
@@ -5025,7 +5025,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6be997f3693bad449a2e61f108876b72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0973ba6d5268164894d337b54864ee7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5210,7 +5210,7 @@ GameObject:
   - component: {fileID: 1089855634}
   - component: {fileID: 1089855633}
   m_Layer: 5
-  m_Name: Merry Christmas (1)
+  m_Name: Credit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5232,7 +5232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -19}
+  m_AnchoredPosition: {x: 0, y: -27}
   m_SizeDelta: {x: 237.02002, y: 28.076294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1089855633
@@ -5266,8 +5266,10 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Made by Elliot Eserin
+    m_LineSpacing: 1.8
+  m_Text: 'Made by Elliot Eserin
+
+    Art by Elliot Lambert'
 --- !u!222 &1089855634
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5526,7 +5528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 57e64c02b841e7e489167f648bdb53d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85937bd2cca307c43a65776dcdaca6c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5600,7 +5602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c49657e5b66f6a64393ad123044a802b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3700197f933dbe14bbd32c948c2d6896, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5752,7 +5754,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9879d2cb507e3345a2818196d10f7df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c39495ae9c145f45b68252c2a4f3aa6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
