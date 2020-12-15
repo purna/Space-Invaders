@@ -128,5 +128,11 @@ public class HighscoreTable : MonoBehaviour
 
         if (!System.IO.File.Exists(jsonDir))
             System.IO.File.Create(jsonDir);
+
+        if(System.IO.File.ReadAllLines(jsonDir).Length == 0)
+        {
+            ResetLeaderboard();
+            Debug.Log("No values");
+        }
     }
 }
