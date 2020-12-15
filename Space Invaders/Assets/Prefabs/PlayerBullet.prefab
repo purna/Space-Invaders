@@ -50,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -150,13 +151,13 @@ MonoBehaviour:
   explosion: {fileID: 6960778147184351194, guid: 1e022989b24679f47b401443fd1612a9,
     type: 3}
   explosions:
-  - {fileID: 8300000, guid: 75b96556c4d73ce47accd438eac3ce0f, type: 3}
-  - {fileID: 8300000, guid: 7b5af825c90af0440911528bc55366b2, type: 3}
-  - {fileID: 8300000, guid: fb5744f8b48b9eb40bf8b74e42eb1762, type: 3}
-  - {fileID: 8300000, guid: 4e62bc393e0006a46a6848c3038e9ab1, type: 3}
-  - {fileID: 8300000, guid: 9b08909322f88114dbba8211a0feb038, type: 3}
-  - {fileID: 8300000, guid: 602e0e51852d6e64db0cfaf66a96583c, type: 3}
-  fireSound: {fileID: 8300000, guid: 3b069ede15c5b6049b7145c1646d646f, type: 3}
+  - {fileID: 8300000, guid: 1b7e239437c15e04b8a6d2a8b7d8d698, type: 3}
+  - {fileID: 8300000, guid: a80d174cf34f7f345859b1872bcc2761, type: 3}
+  - {fileID: 8300000, guid: 984f9ea4a241e2141afef8012130ec99, type: 3}
+  - {fileID: 8300000, guid: c6cb3781694d6f144be0aaffc168ea89, type: 3}
+  - {fileID: 8300000, guid: 75ec9f193aa188649a52579670660cd4, type: 3}
+  - {fileID: 8300000, guid: 909460adfcc5026478441f5a49939ce4, type: 3}
+  fireSound: {fileID: 8300000, guid: 5907248f9e3b139448dee28657ef2ad5, type: 3}
 --- !u!82 &-2573185420434693974
 AudioSource:
   m_ObjectHideFlags: 0
