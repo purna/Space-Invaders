@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class LoseUI : MonoBehaviour
 {
-    public GameObject flashingText;
+    public GameObject restart;
     public float interval = 0.5f;
 
     private void Start()
     {
-        InvokeRepeating("Flash", interval, interval);
+        InvokeRepeating("FlashRestart", 0, interval);
     }
 
-    void Flash()
+    void FlashRestart()
     {
-        flashingText.SetActive(!flashingText.activeSelf);
+        restart.SetActive(!restart.activeSelf);
     }
 }

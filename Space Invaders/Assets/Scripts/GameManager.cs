@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
 
     static bool isPlayerDead;
+    public GameObject Leaderboard;
     public GameObject loseScreen;
     public GameObject playerPrefab;
     public Text livesTxt;
@@ -21,8 +22,13 @@ public class GameManager : MonoBehaviour
 
     public static bool pause = false;
 
+    HighscoreTable highscoreTable;
+
+    bool hasUpdatedLeaderboard = false;
+
     private void Start()
     {
+        highscoreTable = FindObjectOfType<HighscoreTable>();
         waveTimer = timeBetweenWaves;
 
         isPlayerDead = false;
@@ -35,7 +41,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if((waveTimer <= 0 || FindObjectsOfType<EnemyScript>().Length == 0) && pause == false)
+
+        if (isPlayerDead && Input.GetButtonDown("Submit") && loseScreen.activeSelf)
+            Restart();
+        if (Input.GetKeyDown(KeyCode.K)) isPlayerDead = true;
+
+        if ((waveTimer <= 0 || FindObjectsOfType<EnemyScript>().Length == 0) && pause == false)
         {
             Instantiate(waves[Random.Range(0, waves.Length)], waveSpawnPoint.position, Quaternion.identity);
             waveTimer = timeBetweenWaves;
@@ -47,7 +58,17 @@ public class GameManager : MonoBehaviour
             pause = true;
 
             if (lives == 0)
-                loseScreen.SetActive(true);
+            {
+                if(hasUpdatedLeaderboard == false)
+                    UpdateLeaderboard();
+
+                if (Input.GetButtonDown("Submit") && !loseScreen.activeSelf)
+                {
+                    Leaderboard.SetActive(false);
+                    loseScreen.SetActive(true);
+                }
+
+            }
             else
             {
                 lives--;
@@ -55,13 +76,9 @@ public class GameManager : MonoBehaviour
                 isPlayerDead = false;
 
                 StartCoroutine(Respawn());
+                hasUpdatedLeaderboard = false;
             }
         }
-
-        if (isPlayerDead && Input.GetButton("Submit"))
-            Restart();
-        if (Input.GetButton("Cancel"))
-            Application.Quit();
     }
 
     IEnumerator StartGame()
@@ -84,11 +101,31 @@ public class GameManager : MonoBehaviour
         isPlayerDead = false;
         pause = false;
         Score.score = 0;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public static void playerDead()
     {
         isPlayerDead = true;
+    }
+
+    void UpdateLeaderboard()
+    {
+        Leaderboard.SetActive(true);
+
+        if (highscoreTable == null)
+            highscoreTable = FindObjectOfType<HighscoreTable>();
+
+        int pos = highscoreTable.CheckNewEntry(Score.score);
+        Debug.Log(pos);
+        if (pos != -1)
+        {
+            highscoreTable.AddNewEntry(pos, new HighscoreTable.HighscoreEntry(pos, Score.score, PlayerPrefs.GetString("init", "NUL")));
+        }
+
+        highscoreTable.UpdateLeaderBoard();
+        highscoreTable.SaveBoard();
+
+        hasUpdatedLeaderboard = true;
     }
 }

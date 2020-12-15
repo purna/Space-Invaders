@@ -23,7 +23,7 @@ public class Menu : MonoBehaviour
     private void Update()
     {
         if (Input.GetButton("Submit"))
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         if (Input.GetButton("Cancel"))
             Application.Quit();
     }
