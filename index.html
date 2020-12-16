@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Space Invaders | Merry Christmas!</title>
+    <title>Unity WebGL Player | Space Invaders</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -19,7 +19,7 @@
       </div>
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
-        <!--<div id="unity-fullscreen-button"></div>-->
+        <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Space Invaders</div>
       </div>
     </div>
@@ -58,9 +58,9 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-          /*fullscreenButton.onclick = () => {
+          fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
-          };*/
+          };
         }).catch((message) => {
           alert(message);
         });
