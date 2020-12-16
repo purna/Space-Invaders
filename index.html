@@ -3,39 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Space Invaders | Have a very Merry Christmas!</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGL build.json", {onProgress: UnityProgress});
-    </script>
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="https://ellioteserin.github.io/Space-Invaders/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://ellioteserin.github.io/Space-Invaders/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://ellioteserin.github.io/Space-Invaders/favicon-16x16.png">
-    <link rel="manifest" href="https://ellioteserin.github.io/Space-Invaders/site.webmanifest">
-    <link rel="mask-icon" href="https://ellioteserin.github.io/Space-Invaders/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="https://ellioteserin.github.io/Space-Invaders/favicon.ico">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="msapplication-config" content="https://ellioteserin.github.io/Space-Invaders/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <style>
-      body
-      {
-        background-color: #ffffff;
-      }
-    </style>
+    <title>Unity WebGL Player | Space Invaders</title>
   </head>
-  <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 850px; height: 750px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <!--<div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>-->
-        <div class="title">Christmas Space Invaders!</div>
-      </div>
-    </div>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" style="width: 850px; height: 750px; background: #130D26"></canvas>
+    <script src="Build/game2.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/game2.data",
+        frameworkUrl: "Build/game2.framework.js",
+        codeUrl: "Build/game2.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Lewes Game Devs",
+        productName: "Space Invaders",
+        productVersion: "0.1",
+      });
+    </script>
   </body>
 </html>
