@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +12,7 @@ public class HighscoreTable : MonoBehaviour
 
     //string jsonDir;
     //string fileSuffix = "leaderboard.json";
-    string domain = "http://localhost/";
+    string domain = "https://www.pipress.com/game/";
 
 
     [System.Serializable]
