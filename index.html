@@ -1,41 +1,71 @@
+
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Space Invaders | Have a very Merry Christmas!</title>
+    <title>Unity WebGL Player | Space Invaders</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGL build.json", {onProgress: UnityProgress});
-    </script>
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="https://ellioteserin.github.io/Space-Invaders/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://ellioteserin.github.io/Space-Invaders/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://ellioteserin.github.io/Space-Invaders/favicon-16x16.png">
-    <link rel="manifest" href="https://ellioteserin.github.io/Space-Invaders/site.webmanifest">
-    <link rel="mask-icon" href="https://ellioteserin.github.io/Space-Invaders/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="https://ellioteserin.github.io/Space-Invaders/favicon.ico">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="msapplication-config" content="https://ellioteserin.github.io/Space-Invaders/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <style>
-      body
-      {
-        background-color: #ffffff;
-      }
-    </style>
   </head>
   <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 850px; height: 750px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <!--<div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>-->
-        <div class="title">Christmas Space Invaders!</div>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <!--<div id="unity-fullscreen-button"></div>-->
+        <div id="unity-build-title">Space Invaders</div>
       </div>
     </div>
+    <script>
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Space Invaders build.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/Space Invaders build.data.gz",
+        frameworkUrl: buildUrl + "/Space Invaders build.framework.js.gz",
+        codeUrl: buildUrl + "/Space Invaders build.wasm.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Lewes Game Devs",
+        productName: "Space Invaders",
+        productVersion: "0.1",
+      };
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";
+        config.devicePixelRatio = 1;
+      } else {
+        canvas.style.width = "850px";
+        canvas.style.height = "750px";
+      }
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          /*fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);*/
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>
